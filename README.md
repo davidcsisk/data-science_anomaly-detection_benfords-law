@@ -32,6 +32,6 @@ Done:
 * Added built-in help text when calling the script with no arguments.
 * Build output filename from the input filename.
 
-ToDo: 
-*Add support for ID column(s) after the values to fit to the probability distribution to tie back to extracted txns.
+To-Do: 
+* Add support for ID column(s) after the values to fit to the probability distribution to tie back to extracted txns.
 	  
