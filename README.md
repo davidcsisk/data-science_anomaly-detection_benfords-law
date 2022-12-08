@@ -24,3 +24,14 @@ passed in.
 
 To make this potentially useful in practice, it may be worthwhile to include an ID column to tie back to the original transactions, 
 and simply ignore that "primary key" column for computational purposes.
+
+## ENHANCEMENTS
+
+Done: 
+* Add support for passing in arguments for CSV input filename and desired alpha level.  (Filename and alpha were hard-coded in original.)
+* Added built-in help text when calling the script with no arguments.
+* Build output filename from the input filename.
+
+ToDo: 
+*Add support for ID column(s) after the values to fit to the probability distribution to tie back to extracted txns.
+	  

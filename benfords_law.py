@@ -1,3 +1,5 @@
+import os
+import sys
 import numpy as np
 import math
 from scipy import stats
@@ -6,6 +8,7 @@ import pandas as pd
 
 
 def main(csv_file, alpha_level):
+
     # Probability of digit (d) occurring in nth position
     def calc_expected_probability(d: int, n: int) -> float:
         # generalization of Benford's Law ~ Summation( log[ 1 + (1/(10k+d)] ) where d = digit, k = (10^(n-2), 10^(n-1))
@@ -130,11 +133,22 @@ def main(csv_file, alpha_level):
     plt_1.show()
 
     # export CSV and plots
-    violations_df.to_csv('transactions_to_investigate.csv')
+    
+    output_filename = "txns-to-examine_"+csv_file
+    violations_df.to_csv(output_filename)
 
     plt_0.savefig('first_digit_plot.png')
     plt_1.savefig('second_digit_plot.png')
 
 
 if __name__ == "__main__":
-    main('transactions_real.csv', .999)
+    # If no args passed in, then return some help output and exit
+    if len(sys.argv) == 1:
+        print("Usage:  python benfords_law.py input_file.csv alpha_level")
+        print("")
+        quit()
+
+    # Get the input args and convert/store them to call main()
+    input_filename = sys.argv[1]
+    input_alpha = float(sys.argv[2])
+    main(input_filename, input_alpha)
